@@ -1,8 +1,7 @@
-import java.sql.SQLOutput;
 
 public class SecondClassAssignement {
     public static void main(String[] args) {
-        int[] a = {10, 20, 30, 50, 60, 100, 80};
+        int[] a = {10, 20, 30, 50, 60, 100, 81};
         int[] b = {1, 2, 3, 3, 4, 5};
         int n = 5;
         String s = "madam";
@@ -47,6 +46,20 @@ public class SecondClassAssignement {
         System.out.println("Armstrong check: "+isArmstrong(z));
 
         maxminCheck(a);
+
+        int p = 10000;
+        int r = 5;
+        int t = 2;
+        System.out.println("Simple Interest: "+ simpleInterest(p,r,t));
+
+        int c = 100;
+        int f =100;
+        System.out.println("Temp in Farenhite: "+ celsiustofarenhite(c));
+        System.out.println("Temp in Celsius: "+ farenhitetocelsius(f));
+        charactercheck((char) c);
+        System.out.println("Sum of number in the String is "+sumofnumbersinstring("he8ll14"));
+
+        System.out.println("Second Max value of array: " + secondmaxvalueofarray(a));
     }
 
     public static int sumOfArray(int[] b) {
@@ -262,5 +275,48 @@ public class SecondClassAssignement {
         }
         System.out.println("Max value of Array: "+ max);
         System.out.println("Min value of Array: "+ min);
+    }
+
+    public static float simpleInterest(int p, float r, int t) {
+        return (p * r * t) / 100;
+    }
+
+    public static double celsiustofarenhite(double C){
+        return ((C * 9) / 5) + 32;
+    }
+    public static double farenhitetocelsius(double F){
+        return (F-32) * 5 / 9;
+    }
+    public static void charactercheck(char x){
+        if(x >= 'A' && x<='Z') System.out.println(x+" is uppercase letter");
+        else if(x>= 'a' && x<='z') System.out.println(x+" is lowercase letter");
+        else if(x>='0' && x<='9') System.out.println(x+" is a number");
+        else System.out.println(x+" is a number is a special character");
+    }
+
+    public static int secondmaxvalueofarray(int[] b) {
+        int max = -1;
+        for (int i = 0; i < b.length; i++) {
+            if (max < b[i]) {
+                max = b[i];
+            }
+        }
+        int secondMax = -99999999;
+        for (int i = 0; i < b.length; i++) {
+            if(b[i] != max && b[i]>secondMax)
+                secondMax= b[i];
+        }
+        return secondMax;
+    }
+    public static int sumofnumbersinstring(String S){
+        int sum = 0;
+        int temp = 0;
+        for (int i = 0; i < S.length(); i++) {
+            if(S.charAt(i)>='0' && S.charAt(i)<='9') {
+                temp = S.charAt(i) - '0';
+                sum = sum + temp;
+            }
+        }
+        return sum;
     }
 }
